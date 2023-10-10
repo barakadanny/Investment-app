@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function InvestmentForm() {
+function InvestmentForm(props) {
   const [enteredCurrentSavings, setEnteredCurrentSavings] = useState("");
   const [enteredYearlySavings, setEnteredYearlySavings] = useState("");
   const [enteredExpectedInterest, setEnteredExpectedInterest] = useState("");
@@ -31,7 +31,13 @@ function InvestmentForm() {
       duration: enteredDuration,
     };
 
-    console.log(investmentData);
+    // console.log(investmentData);
+
+    props.onSaveExpenseData(investmentData);
+    setEnteredCurrentSavings("");
+    setEnteredYearlySavings("");
+    setEnteredExpectedInterest("");
+    setEnteredDuration("");
   };
   return (
     <div>
