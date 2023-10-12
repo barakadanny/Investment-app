@@ -1,42 +1,46 @@
 import React from "react";
 
-function InvestmentsItems() {
+function InvestmentsItems(props) {
+  const { currentSavings, yearlySavings, expectedInterest, duration } = props;
+
   const calculateHandler = (userInput) => {
-    // Should be triggered when form is submitted
-    // You might not directly want to bind it to the submit event on the form though...
+    const yearlyData = [];
 
-    const yearlyData = []; // per-year results
+    let currentSavingsFloat = parseFloat(currentSavings);
+    const yearlySavingsFloat = parseFloat(yearlySavings);
+    const expectedInterestFloat = parseFloat(expectedInterest) / 100;
+    const durationInt = parseInt(duration);
 
-    let currentSavings = +userInput["current-savings"]; // feel free to change the shape of this input object!
-    const yearlyContribution = +userInput["yearly-contribution"]; // as mentioned: feel free to change the shape...
-    const expectedReturn = +userInput["expected-return"] / 100;
-    const duration = +userInput["duration"];
-
-    // The below code calculates yearly results (total savings, interest etc)
-    for (let i = 0; i < duration; i++) {
-      const yearlyInterest = currentSavings * expectedReturn;
-      currentSavings += yearlyInterest + yearlyContribution;
+    for (let i = 0; i < durationInt; i++) {
+      const yearlyInterest = currentSavingsFloat * expectedInterestFloat;
+      currentSavingsFloat += yearlyInterest + yearlySavingsFloat;
       yearlyData.push({
-        // feel free to change the shape of the data pushed to the array!
         year: i + 1,
-        yearlyInterest: yearlyInterest,
-        savingsEndOfYear: currentSavings,
-        yearlyContribution: yearlyContribution,
+        yearlyInterest: yearlyInterest.toFixed(2),
+        savingsEndOfYear: currentSavingsFloat.toFixed(2),
+        yearlyContribution: yearlySavingsFloat.toFixed(2),
+        totalInterest: (yearlyInterest * (i + 1)).toFixed(2),
+        totalInvestedCapital: (yearlySavingsFloat * (i + 1)).toFixed(2),
       });
     }
 
-    // do something with yearlyData ...
+    return yearlyData;
+    console.log(yearlyData);
   };
+
+  const yearlyData = calculateHandler();
   return (
-    <tbody>
-      <tr>
-        <td>YEAR NUMBER</td>
-        <td>TOTAL SAVINGS END OF YEAR</td>
-        <td>INTEREST GAINED IN YEAR</td>
-        <td>TOTAL INTEREST GAINED</td>
-        <td>TOTAL INVESTED CAPITAL</td>
-      </tr>
-    </tbody>
+    <>
+      {yearlyData.map((data) => (
+        <tr key={data.year}>
+          <td>{data.year}</td>
+          <td>${data.savingsEndOfYear}</td>
+          <td>${data.yearlyInterest}</td>
+          <td>${data.totalInterest}</td>
+          <td>${data.totalInvestedCapital}</td>
+        </tr>
+      ))}
+    </>
   );
 }
 
