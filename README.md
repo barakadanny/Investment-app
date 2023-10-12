@@ -1,10 +1,9 @@
 # Investment Calculator
 
-A comprehensive web application for calculating and visualizing your investment growth over time. 
+A comprehensive web application for calculating and visualizing your investment growth over time.
 The Investment Calculator allows you to make data-driven financial decisions by projecting your investment returns and seeing the potential outcomes.
 
 ![Screenshot 2023-10-12 at 18 28 04](https://github.com/barakadanny/Investment-app/assets/53088629/881eb5e9-862b-42b2-831e-fb481b678490)
-
 
 ## Table of Contents
 
@@ -33,6 +32,7 @@ View a live demo of the Investment Calculator [here](#).
 
 - **Reactjs**
 - **Css**
+- **Linters**
 
 ## Installation
 
@@ -40,14 +40,18 @@ View a live demo of the Investment Calculator [here](#).
 
    ```bash
    git clone https://github.com/your-username/investment-calculator.git
-   
+
+   ```
+
 2. Install the project dependencies:
    ```bash
     npm install
+   ```
 3. Start the development server:
    ```bash
    npm start
-The application should be accessible at `http://localhost:3000.`
+   The application should be accessible at `http://localhost:3000.`
+   ```
 
 ## Usage
 
@@ -89,4 +93,3 @@ In future updates, we plan to introduce the following features:
 We encourage contributions and feedback to help make the Investment Calculator even better!
 
 Thank you for using the Investment Calculator. Happy investing!
-
