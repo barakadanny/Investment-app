@@ -7,12 +7,13 @@ function NewInvestment(props) {
       ...enteredInvestmentData,
       id: Math.random().toString(),
     };
-    console.log(investmentData);
+    // console.log(investmentData);
+    props.onSaveInvestment(investmentData);
   };
 
   return (
     <div>
-      <InvestmentForm onSaveExpenseData={saveInvestmentDataHandler} />
+      <InvestmentForm onSaveInvestmentData={saveInvestmentDataHandler} />
     </div>
   );
 }
