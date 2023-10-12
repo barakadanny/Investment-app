@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 function InvestmentForm(props) {
-  const [enteredCurrentSavings, setEnteredCurrentSavings] = useState("");
-  const [enteredYearlySavings, setEnteredYearlySavings] = useState("");
-  const [enteredExpectedInterest, setEnteredExpectedInterest] = useState("");
-  const [enteredDuration, setEnteredDuration] = useState("");
+  const [enteredCurrentSavings, setEnteredCurrentSavings] = useState('');
+  const [enteredYearlySavings, setEnteredYearlySavings] = useState('');
+  const [enteredExpectedInterest, setEnteredExpectedInterest] = useState('');
+  const [enteredDuration, setEnteredDuration] = useState('');
 
   const currentSavingsChangeHandler = (event) => {
     setEnteredCurrentSavings(event.target.value);
@@ -33,18 +33,18 @@ function InvestmentForm(props) {
 
     // props.onSaveInvestmentData(investmentData);
 
-    props.onSaveInvestmentData(investmentData);
-    setEnteredCurrentSavings("");
-    setEnteredYearlySavings("");
-    setEnteredExpectedInterest("");
-    setEnteredDuration("");
+    props.onSaveInvestmentData(investmentData); // eslint-disable-line
+    setEnteredCurrentSavings('');
+    setEnteredYearlySavings('');
+    setEnteredExpectedInterest('');
+    setEnteredDuration('');
   };
 
   const resetForm = () => {
-    setEnteredCurrentSavings("");
-    setEnteredYearlySavings("");
-    setEnteredExpectedInterest("");
-    setEnteredDuration("");
+    setEnteredCurrentSavings('');
+    setEnteredYearlySavings('');
+    setEnteredExpectedInterest('');
+    setEnteredDuration('');
   };
   return (
     <div>
@@ -92,6 +92,7 @@ function InvestmentForm(props) {
           </p>
         </div>
         <p className="actions">
+          {/* eslint-disable-next-line */}
           <button type="reset" className="buttonAlt" onClick={resetForm}>
             Reset
           </button>

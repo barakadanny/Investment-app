@@ -1,17 +1,19 @@
-import React from "react";
+import React from 'react';
 
 function InvestmentsItems(props) {
-  const { currentSavings, yearlySavings, expectedInterest, duration } = props;
+  const {
+    currentSavings, yearlySavings, expectedInterest, duration,
+  } = props;
 
-  const calculateHandler = (userInput) => {
+  const calculateHandler = () => {
     const yearlyData = [];
 
     let currentSavingsFloat = parseFloat(currentSavings);
     const yearlySavingsFloat = parseFloat(yearlySavings);
     const expectedInterestFloat = parseFloat(expectedInterest) / 100;
-    const durationInt = parseInt(duration);
+    const durationInt = parseInt(duration, 10);
 
-    for (let i = 0; i < durationInt; i++) {
+    for (let i = 0; i < durationInt; i += 1) {
       const yearlyInterest = currentSavingsFloat * expectedInterestFloat;
       currentSavingsFloat += yearlyInterest + yearlySavingsFloat;
       yearlyData.push({
@@ -25,7 +27,6 @@ function InvestmentsItems(props) {
     }
 
     return yearlyData;
-    console.log(yearlyData);
   };
 
   const yearlyData = calculateHandler();
@@ -34,10 +35,22 @@ function InvestmentsItems(props) {
       {yearlyData.map((data) => (
         <tr key={data.year}>
           <td>{data.year}</td>
-          <td>${data.savingsEndOfYear}</td>
-          <td>${data.yearlyInterest}</td>
-          <td>${data.totalInterest}</td>
-          <td>${data.totalInvestedCapital}</td>
+          <td>
+            $
+            {data.savingsEndOfYear}
+          </td>
+          <td>
+            $
+            {data.yearlyInterest}
+          </td>
+          <td>
+            $
+            {data.totalInterest}
+          </td>
+          <td>
+            $
+            {data.totalInvestedCapital}
+          </td>
         </tr>
       ))}
     </>

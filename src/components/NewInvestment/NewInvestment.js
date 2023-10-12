@@ -1,5 +1,5 @@
-import React from "react";
-import InvestmentForm from "./InvestmentForm";
+import React from 'react';
+import InvestmentForm from './InvestmentForm';
 
 function NewInvestment(props) {
   const saveInvestmentDataHandler = (enteredInvestmentData) => {
@@ -7,7 +7,7 @@ function NewInvestment(props) {
       ...enteredInvestmentData,
       id: Math.random().toString(),
     };
-    // console.log(investmentData);
+    /* eslint-disable-next-line */
     props.onSaveInvestment(investmentData);
   };
 

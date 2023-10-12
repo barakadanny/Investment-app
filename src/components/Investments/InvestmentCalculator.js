@@ -1,10 +1,9 @@
-import React, { useState } from "react";
-import logo from "../../assets/investment-calculator-logo.png";
-import NewInvestment from "./../NewInvestment/NewInvestment";
-import InvestmentsItems from "./InvestmentsItems";
+import React, { useState } from 'react';
+import logo from '../../assets/investment-calculator-logo.png';
+import NewInvestment from '../NewInvestment/NewInvestment';
+import InvestmentsItems from './InvestmentsItems';
 
-function InvestmentCalculator(props) {
-  const { items } = props;
+function InvestmentCalculator() {
   const [investmentData, setInvestmentData] = useState([]);
 
   const addInvestmentDataHandler = (newInvestmentData) => {
@@ -12,8 +11,6 @@ function InvestmentCalculator(props) {
       ...prevInvestmentData,
       newInvestmentData,
     ]);
-
-    const noDataMessage = "No data available!!";
   };
   return (
     <div>
@@ -23,9 +20,6 @@ function InvestmentCalculator(props) {
       </header>
 
       <NewInvestment onSaveInvestment={addInvestmentDataHandler} />
-
-      {/* Todo: Show below table conditionally (only once result data is available) */}
-      {/* Show fallback text if no data is available */}
 
       <table className="result">
         <thead>
