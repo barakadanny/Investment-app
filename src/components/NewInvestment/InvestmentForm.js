@@ -31,9 +31,16 @@ function InvestmentForm(props) {
       duration: enteredDuration,
     };
 
-    // console.log(investmentData);
+    // props.onSaveInvestmentData(investmentData);
 
-    props.onSaveExpenseData(investmentData);
+    props.onSaveInvestmentData(investmentData);
+    setEnteredCurrentSavings("");
+    setEnteredYearlySavings("");
+    setEnteredExpectedInterest("");
+    setEnteredDuration("");
+  };
+
+  const resetForm = () => {
     setEnteredCurrentSavings("");
     setEnteredYearlySavings("");
     setEnteredExpectedInterest("");
@@ -85,7 +92,7 @@ function InvestmentForm(props) {
           </p>
         </div>
         <p className="actions">
-          <button type="reset" className="buttonAlt">
+          <button type="reset" className="buttonAlt" onClick={resetForm}>
             Reset
           </button>
           <button
