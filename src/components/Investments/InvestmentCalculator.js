@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../../assets/investment-calculator-logo.png";
 import NewInvestment from "./../NewInvestment/NewInvestment";
 import InvestmentsItems from "./InvestmentsItems";
 
-function InvestmentCalculator() {
+function InvestmentCalculator(props) {
+  const { items } = props;
+  const [investmentData, setInvestmentData] = useState([]);
+
+  const addInvestmentDataHandler = (newInvestmentData) => {
+    setInvestmentData((prevInvestmentData) => [
+      ...prevInvestmentData,
+      newInvestmentData,
+    ]);
+
+    const noDataMessage = "No data available!!";
+  };
   return (
     <div>
       <header className="header">
@@ -11,7 +22,7 @@ function InvestmentCalculator() {
         <h1>Investment Calculator</h1>
       </header>
 
-      <NewInvestment />
+      <NewInvestment onSaveInvestment={addInvestmentDataHandler} />
 
       {/* Todo: Show below table conditionally (only once result data is available) */}
       {/* Show fallback text if no data is available */}
@@ -26,7 +37,23 @@ function InvestmentCalculator() {
             <th>Invested Capital</th>
           </tr>
         </thead>
-        <InvestmentsItems />
+        <tbody>
+          {investmentData.length === 0 ? (
+            <tr>
+              <td>No data available!!</td>
+            </tr>
+          ) : (
+            investmentData.map((item) => (
+              <InvestmentsItems
+                key={item.id}
+                currentSavings={item.currentSavings}
+                yearlySavings={item.yearlySavings}
+                expectedInterest={item.expectedInterest}
+                duration={item.duration}
+              />
+            ))
+          )}
+        </tbody>
       </table>
     </div>
   );
