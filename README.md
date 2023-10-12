@@ -3,6 +3,8 @@
 A comprehensive web application for calculating and visualizing your investment growth over time.
 The Investment Calculator allows you to make data-driven financial decisions by projecting your investment returns and seeing the potential outcomes.
 
+- [Click here for a demo](https://investment-app-xi.vercel.app/)
+
 ![Screenshot 2023-10-12 at 18 28 04](https://github.com/barakadanny/Investment-app/assets/53088629/881eb5e9-862b-42b2-831e-fb481b678490)
 
 ## Table of Contents
@@ -18,7 +20,7 @@ The Investment Calculator allows you to make data-driven financial decisions by 
 
 ## Demo
 
-View a live demo of the Investment Calculator [here](#).
+View a live demo of the Investment Calculator [here](https://investment-app-xi.vercel.app/).
 
 ## Features
 
